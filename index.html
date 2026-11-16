@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0e1630">
+<title>TUN.SLEEP — ортопедическая подушка</title>
+<style>
+:root{--bg:#f7f1e6;--card:#fffcf6;--ink:#0e1630;--mute:#697086;--gold:#b8923f;--line:rgba(14,22,48,.1);--navy:#0e1630;color-scheme:light;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0a1022;--card:#141c36;--ink:#f3ecde;--mute:#a1a8bb;--gold:#d3ad5c;--line:rgba(243,236,222,.12);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0a1022;--card:#141c36;--ink:#f3ecde;--mute:#a1a8bb;--gold:#d3ad5c;--line:rgba(243,236,222,.12);color-scheme:dark}
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{background:#05080f;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);line-height:1.55}
+.app{max-width:520px;margin:0 auto;background:var(--bg);min-height:100vh;position:relative;overflow:hidden;padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}
+.serif{font-family:"Cormorant Garamond",Georgia,"Times New Roman",serif}
+.pad{padding:0 22px}
+/* hero */
+.hero{background:radial-gradient(120% 70% at 50% 38%,#26335f 0%,#0e1630 62%);color:#f7f1e6;padding:calc(18px + env(safe-area-inset-top,0px)) 22px 44px;border-radius:0 0 36px 36px;position:relative}
+.top{display:flex;justify-content:space-between;align-items:center}
+.logo{font:600 17px Georgia,serif;letter-spacing:.2em}
+.logo small{display:block;font:500 8px Inter,sans-serif;letter-spacing:.4em;color:#d3ad5c;margin-top:2px}
+.lang{display:flex;background:rgba(255,255,255,.1);border-radius:99px;padding:3px}
+.lang button{background:none;border:0;color:#f7f1e6;opacity:.65;padding:7px 14px;border-radius:99px;font:600 12px Inter,sans-serif;cursor:pointer}
+.lang button.on{background:#d3ad5c;color:#0e1630;opacity:1}
+.eyebrow{color:#d3ad5c;letter-spacing:.32em;font-size:11px;font-weight:600;text-transform:uppercase}
+.hero .eyebrow{text-align:center;margin-top:34px}
+.hero h1{font-size:46px;line-height:1.02;font-weight:500;text-align:center;margin:12px 0 0}
+.hero h1 em{color:#d3ad5c;display:block}
+.pill{margin:6px auto 0;display:block;width:100%;max-width:380px;filter:drop-shadow(0 30px 30px rgba(0,0,0,.45));animation:float 6s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-8px)}}
+.hero p.lead{text-align:center;color:rgba(247,241,230,.75);font-size:15px;max-width:22em;margin:6px auto 0}
+.price{text-align:center;margin:22px 0 18px;font:500 54px Georgia,serif;color:#fff}
+.price small{display:block;font:500 12px Inter,sans-serif;letter-spacing:.2em;color:#d3ad5c;text-transform:uppercase;margin-bottom:2px}
+.btn{display:block;text-align:center;background:linear-gradient(135deg,#e1c27a,#b8923f);color:#0e1630;border:0;padding:18px;border-radius:18px;font:700 16px Inter,sans-serif;text-decoration:none;width:100%;cursor:pointer;box-shadow:0 12px 28px rgba(184,146,63,.35);transition:transform .15s}
+.btn:active{transform:scale(.98)}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+.chips i{font-style:normal;font-size:12px;border:1px solid rgba(247,241,230,.25);border-radius:99px;padding:6px 13px;color:rgba(247,241,230,.85)}
+/* sections */
+section{padding:58px 0 0}
+.head{text-align:center;margin-bottom:26px}
+.head h2{font-size:34px;line-height:1.08;font-weight:500;margin-top:8px}
+.head .eyebrow{color:var(--gold)}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:20px 18px}
+.card h3{font:500 20px Georgia,serif;margin:12px 0 6px;line-height:1.15}
+.card p{color:var(--mute);font-size:13.5px}
+.ico{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,rgba(184,146,63,.22),rgba(184,146,63,.05));display:grid;place-items:center}
+.ico svg{width:20px;height:20px;stroke:var(--gold);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+/* carousel */
+.car{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 22px 14px;scrollbar-width:none}
+.car::-webkit-scrollbar{display:none}
+.car .card{flex:0 0 78%;scroll-snap-align:center;padding:24px 22px}
+.car .card.pick{border:1.5px solid var(--gold);background:linear-gradient(180deg,var(--card),rgba(184,146,63,.08))}
+.tag{display:inline-block;background:var(--gold);color:#0e1630;font:700 10px Inter,sans-serif;padding:4px 10px;border-radius:99px;letter-spacing:.1em}
+.spec{display:inline-block;margin-top:12px;border:1px solid var(--line);border-radius:99px;padding:5px 13px;font-size:12px}
+.mp{font:500 28px Georgia,serif;margin-top:14px}
+.mp a{font:600 14px Inter,sans-serif;color:var(--gold);text-decoration:none}
+/* height toggle */
+.tog{display:flex;background:var(--card);border:1px solid var(--line);border-radius:99px;padding:4px;max-width:260px;margin:0 auto 22px}
+.tog button{flex:1;background:none;border:0;color:var(--mute);padding:11px;border-radius:99px;font:700 14px Inter,sans-serif;cursor:pointer;transition:.25s}
+.tog button.on{background:var(--ink);color:var(--bg)}
+.stage{background:var(--card);border:1px solid var(--line);border-radius:26px;padding:26px 18px 22px;text-align:center}
+.shape{margin:0 auto;width:78%;background:linear-gradient(180deg,#fffdf8,#eadfca);border:1.5px solid var(--gold);border-radius:30px 30px 22px 22px;transition:height .45s cubic-bezier(.3,1.3,.5,1);display:flex;align-items:center;justify-content:center;color:#b8923f;font:500 40px Georgia,serif;box-shadow:0 18px 30px rgba(14,22,48,.14)}
+.stage h3{font:500 24px Georgia,serif;margin-top:20px}
+.stage p{color:var(--mute);font-size:14px;margin-top:4px}
+/* steps */
+.step{display:flex;gap:16px;align-items:flex-start;padding:18px 0;border-bottom:1px solid var(--line)}
+.step b{font:500 34px Georgia,serif;color:var(--gold);line-height:1}
+.step h3{font:500 19px Georgia,serif}
+.step p{color:var(--mute);font-size:13.5px}
+/* order */
+.order{margin:58px 16px 0;background:radial-gradient(120% 90% at 50% 0,#26335f,#0e1630 70%);color:#f7f1e6;border-radius:30px;padding:34px 22px}
+.order h2{font-size:32px;line-height:1.08;font-weight:500;text-align:center}
+.order p.s{text-align:center;opacity:.7;font-size:14px;margin:10px 0 6px}
+.order .price{margin:10px 0 20px;font-size:46px}
+form{display:grid;gap:10px}
+input,select{width:100%;padding:17px 18px;border-radius:16px;border:1px solid rgba(247,241,230,.2);background:rgba(255,255,255,.07);color:#f7f1e6;font:16px Inter,sans-serif;appearance:none}
+select option{color:#0e1630}
+input::placeholder{color:#f7f1e6;opacity:.5}
+.note{font-size:11.5px;opacity:.55;text-align:center;margin-top:4px}
+details{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px 20px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:600;font-size:15px;list-style:none;display:flex;justify-content:space-between;gap:10px}
+summary::after{content:"+";color:var(--gold);font-size:20px;line-height:1}
+details[open] summary::after{content:"–"}
+details p{color:var(--mute);font-size:14px;margin-top:10px}
+footer{text-align:center;color:var(--mute);font-size:13px;padding:40px 22px 10px}
+footer b{display:block;letter-spacing:.2em;color:var(--ink);margin-bottom:6px;font-family:Georgia,serif}
+/* sticky bar */
+.bar{position:fixed;left:50%;transform:translateX(-50%) translateY(120%);bottom:0;width:100%;max-width:520px;z-index:20;padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));background:rgba(14,22,48,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);display:flex;align-items:center;gap:14px;border-radius:24px 24px 0 0;transition:transform .4s}
+.bar.show{transform:translateX(-50%)}
+.bar div{color:#f7f1e6;font:500 24px Georgia,serif;line-height:1.1;white-space:nowrap}
+.bar div small{display:block;font:500 10px Inter,sans-serif;letter-spacing:.15em;color:#d3ad5c}
+.bar .btn{padding:15px;box-shadow:none}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}.pill{animation:none}}
+</style>
+</head>
+<body>
+<div class="app">
+<div class="hero">
+<div class="top"><div class="logo">TUN.SLEEP<small data-i="tag"></small></div><div class="lang"><button id="ru" class="on">RU</button><button id="kk">ҚАЗ</button></div></div>
+<div class="eyebrow" data-i="eyebrow"></div>
+<h1 class="serif"><span data-i="h1a"></span><em data-i="h1b"></em></h1>
+<svg class="pill" viewBox="0 0 520 300" aria-hidden="true">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffdf8"/><stop offset="1" stop-color="#e6d9bf"/></linearGradient><radialGradient id="h"><stop offset="0" stop-color="#d3ad5c" stop-opacity=".35"/><stop offset="1" stop-color="#d3ad5c" stop-opacity="0"/></radialGradient></defs>
+<ellipse cx="260" cy="160" rx="250" ry="130" fill="url(#h)"/>
+<path d="M40 190 C40 140 85 118 138 132 C200 150 240 184 302 178 C364 172 402 98 454 96 C492 96 504 128 502 166 C500 216 476 250 424 254 L106 254 C64 252 40 232 40 190Z" fill="url(#g)" stroke="#d3ad5c" stroke-width="1.5"/>
+<path d="M62 214 C150 200 222 232 304 214 C386 196 428 160 488 172" fill="none" stroke="#0e1630" stroke-width="3" stroke-linecap="round" opacity=".85"/>
+<g stroke="#b8923f" stroke-width="1" opacity=".45" fill="none"><path d="M120 168 l13 13 l13 -13 l13 13 l13 -13 l13 13 l13 -13"/><path d="M340 144 l13 13 l13 -13 l13 13 l13 -13 l13 13"/></g>
+</svg>
+<p class="lead" data-i="lead"></p>
+<div class="price"><small data-i="priceNote"></small>24 990 ₸</div>
+<a class="btn" href="#order" id="heroBtn" data-i="buy"></a>
+<div class="chips"><i data-i="c1"></i><i data-i="c2"></i><i data-i="c3"></i></div>
+</div>
+
+<section class="pad rv"><div class="head"><div class="eyebrow" data-i="why"></div><h2 class="serif" data-i="whyT"></h2></div>
+<div class="g2">
+<div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 15c3-5 6-1 9-5s6 0 9 3"/><path d="M4 19h16"/></svg></div><h3 data-i="b1t"></h3><p data-i="b1"></p></div>
+<div class="card"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="9" cy="10" r="1"/><circle cx="14" cy="9" r="1"/><circle cx="12" cy="14" r="1"/></svg></div><h3 data-i="b2t"></h3><p data-i="b2"></p></div>
+<div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 9c3-3 6 3 9 0s6 3 9 0M3 15c3-3 6 3 9 0s6 3 9 0"/></svg></div><h3 data-i="b3t"></h3><p data-i="b3"></p></div>
+<div class="card"><div class="ico"><svg viewBox="0 0 24 24"><rect x="4" y="6" width="16" height="12" rx="3"/><path d="M4 12h9M13 10v4"/></svg></div><h3 data-i="b4t"></h3><p data-i="b4"></p></div>
+</div></section>
+
+<section class="rv"><div class="head pad"><div class="eyebrow" data-i="mod"></div><h2 class="serif" data-i="modT"></h2></div>
+<div class="car">
+<div class="card pick"><span class="tag" data-i="hit"></span><h3 style="font-size:26px">Adult Latex</h3><p data-i="m1"></p><span class="spec">60×40 см · 8–12 см</span><div class="mp">24 990 ₸</div></div>
+<div class="card"><h3 style="font-size:26px">Kids</h3><p data-i="m2"></p><span class="spec">50×30 см · 3–6 см</span><div class="mp"><a href="#order" data-i="ask"></a></div></div>
+<div class="card"><h3 style="font-size:26px">TPE Gel</h3><p data-i="m3"></p><span class="spec" data-i="m3s"></span><div class="mp"><a href="#order" data-i="ask"></a></div></div>
+</div></section>
+
+<section class="pad rv"><div class="head"><div class="eyebrow" data-i="sz"></div><h2 class="serif" data-i="szT"></h2></div>
+<div class="tog"><button id="t8" class="on">8 см</button><button id="t12">12 см</button></div>
+<div class="stage"><div class="shape" id="sh" style="height:96px"><span id="shn">8 см</span></div><h3 id="sht"></h3><p id="shp"></p></div></section>
+
+<section class="pad rv"><div class="head"><div class="eyebrow" data-i="how"></div><h2 class="serif" data-i="howT"></h2></div>
+<div class="step"><b>01</b><div><h3 data-i="s1t"></h3><p data-i="s1"></p></div></div>
+<div class="step"><b>02</b><div><h3 data-i="s2t"></h3><p data-i="s2"></p></div></div>
+<div class="step" style="border:0"><b>03</b><div><h3 data-i="s3t"></h3><p data-i="s3"></p></div></div></section>
+
+<div class="order rv" id="order">
+<div class="eyebrow" style="text-align:center;margin-bottom:10px" data-i="ord"></div>
+<h2 class="serif" data-i="ordT"></h2><p class="s" data-i="ordP"></p>
+<div class="price">24 990 ₸</div>
+<form id="f">
+<input id="nm" required data-ph="ph1" autocomplete="name">
+<input id="ph" required inputmode="tel" autocomplete="tel" data-ph="ph2">
+<input id="ct" data-ph="ph3">
+<select id="mdl"><option>Adult Latex 60×40 · 8 см</option><option>Adult Latex 60×40 · 12 см</option><option>Kids 50×30</option><option>TPE Gel</option></select>
+<button class="btn" type="submit" data-i="send"></button>
+<div class="note" data-i="note"></div>
+</form></div>
+
+<section class="pad rv"><div class="head"><div class="eyebrow">FAQ</div><h2 class="serif" data-i="faqT"></h2></div>
+<details><summary data-i="q1"></summary><p data-i="a1"></p></details>
+<details><summary data-i="q2"></summary><p data-i="a2"></p></details>
+<details><summary data-i="q3"></summary><p data-i="a3"></p></details>
+<details><summary data-i="q4"></summary><p data-i="a4"></p></details></section>
+
+<footer><b>TUN.SLEEP</b>tunsleep.kz · Instagram @tunsleep.kz</footer>
+</div>
+<div class="bar" id="bar"><div><small data-i="priceNote"></small>24 990 ₸</div><a class="btn" href="#order" data-i="buy"></a></div>
+
+<script>
+var WA="77000000000"; /* ← ваш номер WhatsApp */
+var T={
+ru:{tag:"САПАЛЫ ҰЙҚЫ",buy:"Заказать",eyebrow:"Ортопедическая подушка",h1a:"Сон, который",h1b:"меняет утро",
+lead:"Анатомическая подушка с латексным ядром. Мягко поддерживает шею и голову, дышит и держит форму.",
+priceNote:"Подушка 60×40 см",c1:"Латексное ядро",c2:"Съёмный чехол",c3:"Высота 8 / 12 см",
+why:"Преимущества",whyT:"Опора для здорового сна",
+b1t:"Анатомическая форма",b1:"Удобная опора для шеи и головы.",
+b2t:"Упругий латекс",b2:"Эластичная структура держит форму ночь за ночью.",
+b3t:"Воздухообмен",b3:"Структура помогает циркуляции воздуха и даёт ощущение прохлады.",
+b4t:"Лёгкий уход",b4:"Чехол снимается на молнии — его удобно стирать.",
+mod:"Линейка",modT:"Модели TUN.SLEEP",hit:"ХИТ",ask:"Уточнить наличие →",
+m1:"Для взрослых, с латексным ядром. Две высоты профиля на выбор — высокий или низкий валик.",
+m2:"Компактный формат для детей. Для детской кроватки и спокойного сна малыша.",
+m3:"Новая подушка с сотовой структурой: распределяет давление, пропускает воздух, моется водой.",m3s:"Сотовая структура",
+sz:"Высота",szT:"Выберите свою высоту",
+low:"Низкий валик",lowP:"Для сна на спине и тем, кому комфортна невысокая опора.",
+high:"Высокий валик",highP:"Для сна на боку — заполняет пространство между плечом и головой.",
+how:"Как заказать",howT:"Три простых шага",
+s1t:"Оставьте заявку",s1:"Заполните форму — откроется WhatsApp с готовым сообщением.",
+s2t:"Подтверждаем заказ",s2:"Менеджер уточнит модель, высоту и адрес.",
+s3t:"Получаете подушку",s3:"Доставка по Казахстану, удобная оплата.",
+ord:"Заказ",ordT:"Закажите TUN.SLEEP сегодня",ordP:"Оставьте контакты — мы свяжемся и подтвердим заказ.",
+ph1:"Ваше имя",ph2:"Телефон / WhatsApp",ph3:"Город",send:"Заказать за 24 990 ₸",note:"Откроется WhatsApp с готовым сообщением.",
+faqT:"Частые вопросы",
+q1:"Чем TUN.SLEEP отличается от обычной подушки?",a1:"Снаружи она выглядит просто, но внутри — латексная структура: упругая, держит форму и анатомически поддерживает шею.",
+q2:"Как выбрать высоту?",a2:"Для сна на спине обычно подходит 8 см, для сна на боку — 12 см.",
+q3:"Можно ли стирать чехол?",a3:"Да, чехол снимается на молнии и стирается.",
+q4:"Есть ли детская модель?",a4:"Да — Kids, 50×30 см, высота 3–6 см. Наличие уточняйте у менеджера.",
+msg:"Здравствуйте! Хочу заказать TUN.SLEEP за 24 990 ₸."},
+kk:{tag:"САПАЛЫ ҰЙҚЫ",buy:"Тапсырыс беру",eyebrow:"Ортопедиялық жастық",h1a:"Таңыңызды",h1b:"өзгертетін ұйқы",
+lead:"Латексті өзегі бар анатомиялық жастық. Мойын мен басқа жайлы тірек береді, ауа өткізеді, пішінін сақтайды.",
+priceNote:"Жастық 60×40 см",c1:"Латексті өзек",c2:"Сыртқы тысы шешіледі",c3:"Биіктігі 8 / 12 см",
+why:"Артықшылықтар",whyT:"Сау ұйқыға тірек",
+b1t:"Анатомиялық форма",b1:"Мойын мен басқа жайлы тірек.",
+b2t:"Серпімді латекс",b2:"Серпімді құрылым пішінін түнде де сақтайды.",
+b3t:"Ауа алмасуы",b3:"Құрылым ауа өтуіне көмектеседі, жайлылық сезімін береді.",
+b4t:"Күтімі оңай",b4:"Тысы сыдырмамен шешіледі — жууға ыңғайлы.",
+mod:"Желі",modT:"TUN.SLEEP модельдері",hit:"ХИТ",ask:"Бар-жоғын нақтылау →",
+m1:"Ересектерге арналған, латексті өзекті. Жоғары немесе төмен қырын таңдауға болады.",
+m2:"Балаларға арналған ықшам формат. Бала төсегіне және тыныш ұйқыға.",
+m3:"Ұяшықты құрылымы бар жаңа жастық: қысымды таратады, ауа өткізеді, сумен жуылады.",m3s:"Соталы құрылым",
+sz:"Биіктік",szT:"Өз биіктігіңізді таңдаңыз",
+low:"Төмен қыры",lowP:"Шалқасынан ұйықтайтындарға және аласа тірекке бейім адамдарға.",
+high:"Жоғары қыры",highP:"Бүйірімен ұйықтауға — иық пен бас арасын толтырады.",
+how:"Қалай тапсырыс беру керек",howT:"Үш қарапайым қадам",
+s1t:"Өтінім қалдырыңыз",s1:"Форманы толтырыңыз — WhatsApp дайын хабарламамен ашылады.",
+s2t:"Тапсырысты растаймыз",s2:"Менеджер модельді, биіктікті және мекенжайды нақтылайды.",
+s3t:"Жастықты аласыз",s3:"Қазақстан бойынша жеткізу, ыңғайлы төлем.",
+ord:"Тапсырыс",ordT:"TUN.SLEEP жастығына бүгін тапсырыс беріңіз",ordP:"Байланыс деректерін қалдырыңыз — біз хабарласамыз.",
+ph1:"Атыңыз",ph2:"Телефон / WhatsApp",ph3:"Қала",send:"24 990 ₸ тапсырыс беру",note:"WhatsApp дайын хабарламамен ашылады.",
+faqT:"Жиі қойылатын сұрақтар",
+q1:"TUN.SLEEP кәдімгі жастықтан несімен ерекшеленеді?",a1:"Сырттай жай көрінгенімен, ішінде латекс құрылымы бар: серпімді, пішінін сақтайды, мойынға тірек береді.",
+q2:"Биіктікті қалай таңдаймын?",a2:"Шалқаңнан ұйықтауға әдетте 8 см, бүйірімен ұйықтауға 12 см сай келеді.",
+q3:"Тысын жууға бола ма?",a3:"Иә, тысы сыдырмамен шешіледі, жууға болады.",
+q4:"Балаларға арналған модель бар ма?",a4:"Иә — Kids, 50×30 см, биіктігі 3–6 см. Бар-жоғын менеджерден нақтылаңыз.",
+msg:"Сәлеметсіз бе! TUN.SLEEP жастығына 24 990 ₸ тапсырыс бергім келеді."}
+};
+var L="ru",H=8;
+function sz(){var k=H===8?"low":"high";document.getElementById("sht").textContent=T[L][k];document.getElementById("shp").textContent=T[L][k+"P"]}
+function set(l){L=l;document.documentElement.lang=l;
+document.querySelectorAll("[data-i]").forEach(function(e){e.textContent=T[l][e.dataset.i]});
+document.querySelectorAll("[data-ph]").forEach(function(e){e.placeholder=T[l][e.dataset.ph]});
+document.getElementById("ru").classList.toggle("on",l==="ru");document.getElementById("kk").classList.toggle("on",l==="kk");sz();
+try{localStorage.setItem("lang",l)}catch(e){}}
+document.getElementById("ru").onclick=function(){set("ru")};
+document.getElementById("kk").onclick=function(){set("kk")};
+function pick(h){H=h;document.getElementById("t8").classList.toggle("on",h===8);document.getElementById("t12").classList.toggle("on",h===12);
+document.getElementById("sh").style.height=(h===8?96:144)+"px";document.getElementById("shn").textContent=h+" см";sz()}
+document.getElementById("t8").onclick=function(){pick(8)};
+document.getElementById("t12").onclick=function(){pick(12)};
+document.getElementById("f").onsubmit=function(e){e.preventDefault();
+var t=T[L].msg+"\n"+mdl.value+"\n"+nm.value+"\n"+ph.value+"\n"+ct.value;
+window.open("https://wa.me/"+WA+"?text="+encodeURIComponent(t),"_blank")};
+var s="ru";try{s=localStorage.getItem("lang")||"ru"}catch(e){}
+set(s==="kk"?"kk":"ru");
+var bar=document.getElementById("bar"),hb=document.getElementById("heroBtn"),od=document.getElementById("order");
+var vis={h:true,o:false};
+function upd(){bar.classList.toggle("show",!vis.h&&!vis.o)}
+if("IntersectionObserver" in window){
+new IntersectionObserver(function(a){vis.h=a[0].isIntersecting;upd()}).observe(hb);
+new IntersectionObserver(function(a){vis.o=a[0].isIntersecting;upd()}).observe(od);
+var io=new IntersectionObserver(function(a){a.forEach(function(x){if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target)}})},{threshold:.12});
+document.querySelectorAll(".rv").forEach(function(e){io.observe(e)});
+}else{document.querySelectorAll(".rv").forEach(function(e){e.classList.add("in")});bar.classList.add("show")}
+</script>
+</body>
+</html>
